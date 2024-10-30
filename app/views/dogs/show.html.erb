@@ -1,2 +1,9 @@
 <h1><%= @dog.breed.name %></h1>
-<%= image_tag @dog.image_url, alt: "Image of #{@dog.breed.name}" %>
+
+<h2>Images of <%= @dog.breed.name %> Dog</h2>
+<ul>
+    <% @dog.breed.dogs.each do |dog| %>
+    <li><%= @dog.breed.name %></li> 
+    <%= link_to image_tag(dog.image_url, alt: "Image of #{dog.breed.name}"), dog_path(dog) %>
+    <% end %>
+</ul>

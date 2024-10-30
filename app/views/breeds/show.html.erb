@@ -1,1 +1,9 @@
 <h1><%= @breed.name %></h1>
+<p>This breed has <%= @breed.dogs.count %> imges</p>
+
+<h2>Images of dogs</h2>
+<ul>
+    <% @breed.dogs.each do |dog| %>
+    <li><%= link_to dog.image_url, dog %></li>
+    <% end %>
+</ul>
