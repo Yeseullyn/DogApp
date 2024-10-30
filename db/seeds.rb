@@ -1,3 +1,6 @@
+require 'uri'
+require 'net/http'
+
 Dog.delete_all
 Breed.delete_all
 
@@ -5,9 +8,15 @@ Breed.delete_all
   Breed.create(name: Faker::Creature::Dog.breed)
 end
 
+def fetch_image_url_for_dog
+  url = URI("https://dog.ceo/api/breeds/image/random")
+  response = Net::HTTP.get_response(url)
+  JSON.parse(response.body)["message"]
+end
+
 200.times do
   Dog.create(
-    image_url: "https://dog.ceo/api/breeds/image/random",
+    image_url: fetch_image_url_for_dog,
     breed: Breed.all.sample)
 end
 

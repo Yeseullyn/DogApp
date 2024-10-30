@@ -1,2 +1,6 @@
-<h1>Breeds#index</h1>
-<p>Find me in app/views/breeds/index.html.erb</p>
+<h1>All Breeds</h1>
+<ul>
+    <% @breeds.each do |breed| %>
+    <li><%= link_to breed.name, breed %></li>
+    <% end %>
+</ul>
