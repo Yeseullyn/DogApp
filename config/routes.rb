@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :breeds, only: %i[index show]
   resources :dogs, only: %i[index show]
 
+  get 'about', to: 'pages#show', as: 'about'
+
   root to: "breeds#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

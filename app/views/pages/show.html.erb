@@ -1,0 +1,18 @@
+<h1>About This Application</h1>
+
+<h2>Data Sources</h2>
+<li>Dog API: This API provides images of dogs.</li>
+<li>Faker: This Faker generates fake dog breed names.</li>
+
+<h2>Data Structure</h2>
+<li>Dog model: This table includes image_url and breed_id columns.</li>
+<li>Breed model: This table include dog breed names.</li>
+
+<h2>Plan to integrate the different Datasets</h2>
+<li>Use Faker gem to creat dog breeds and save them in the Breed model.</li>
+<li>Use Dog API to save image_url in the Dog model.</li>
+<li>Each dog row has a breed_id as a FK, it establishing a relationship between Dog and Breed models. For example, when a Dog object is created, it includes an image_url from Dog API and also breed_id that references a random breed from the Breed table.</li>
+<li>They are one to many relationship, which each breed can have multiple dogs associated with it.</li>
+
+<h2>ERD</h2>
+<%= image_tag 'dog_app_ERD.png', alt: "Image of ERD" %>
