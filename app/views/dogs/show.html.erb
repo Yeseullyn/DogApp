@@ -1,6 +1,6 @@
 <h1>Images of All Dogs Named "<%= @dog.name %>"</h1>
 
-<h2><%= link_to @dog.breed.name, @dog.breed %></h2>
+<h2>Breed:<%= link_to @dog.breed.name, @dog.breed %></h2>
 
 <ul>
     <% @dogs.each do |dog| %>
@@ -9,7 +9,7 @@
         <p>Owner Name: <%= owner.name %>, Email: <%= owner.email %> </p>
         <% end %>
 
-        <%= link_to image_tag(dog.image_url, alt: "Image of #{dog.name}"), dog %>
+        <%= link_to image_tag(dog.image_url, alt: "Image of #{dog.name}", :size => "400x400"), dog %>
     </div> 
     <% end %>
 </ul>

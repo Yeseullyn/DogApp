@@ -7,7 +7,7 @@ Dog.delete_all
 Breed.delete_all
 Owner.delete_all
 
-70.times do
+40.times do
   Breed.create(name: Faker::Creature::Dog.breed)
 end
 
@@ -17,7 +17,7 @@ def fetch_image_url_for_dog
   JSON.parse(response.body)["message"]
 end
 
-100.times do
+50.times do
   Dog.create(
     image_url: fetch_image_url_for_dog,
     breed: Breed.all.sample,
@@ -32,9 +32,9 @@ owners.each do |row|
   owner = Owner.create(name: row['Name'], email: row['Email'])
 end
 
-Owner.all.each do |owner|
-  selected_dogs = Dog.all.sample(rand(1..2))
-  selected_dogs.each do |dog|
+Dog.all.each do |dog|
+  selected_owners = Owner.all.sample(rand(1..2))
+  selected_owners.each do |owner|
     owner.dogs << dog
   end
 end
