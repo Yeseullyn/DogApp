@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   def index
-    @dogs = Dog.joins(:breed).order("breeds.name").page params[:page]
+    @dogs = Dog.order(:name).page(params[:page])
   end
 
   def show
@@ -9,6 +9,6 @@ class DogsController < ApplicationController
     
   def search
     wildcard_search = "%#{params[:keywords]}%"
-    @dogs =  Dog.joins(:breed).where("breeds.name LIKE ?", wildcard_search)
+    @dogs =  Dog.where("name LIKE ?", wildcard_search)
   end
 end
