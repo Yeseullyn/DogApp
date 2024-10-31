@@ -1,8 +1,11 @@
 require 'uri'
 require 'net/http'
+require 'csv'
 
+DogOwner.delete_all
 Dog.delete_all
 Breed.delete_all
+Owner.delete_all
 
 70.times do
   Breed.create(name: Faker::Creature::Dog.breed)
@@ -21,5 +24,22 @@ end
     name: Faker::Creature::Dog.name)
 end
 
+filename = Rails.root.join("db/people.csv")
+csv_data = File.read(filename)
+owners = CSV.parse(csv_data, headers: true, encoding: "utf-8")
+
+owners.each do |row|
+  owner = Owner.create(name: row['Name'], email: row['Email'])
+end
+
+Owner.all.each do |owner|
+  selected_dogs = Dog.all.sample(rand(1..2))
+  selected_dogs.each do |dog|
+    owner.dogs << dog
+  end
+end
+
 puts "Created #{Breed.count} breeds"
 puts "Created #{Dog.count} image of dogs"
+puts "Created #{Owner.count} owners"
+puts "Created #{DogOwner.count} dog-owner associations"
