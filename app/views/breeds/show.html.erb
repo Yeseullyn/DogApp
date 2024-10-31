@@ -1,12 +1,12 @@
 <h1><%= @breed.name %></h1>
-<p>This breed has <%= @breed.dogs.count %> images</p>
+<p>This breed has <%= @breed.dogs.count %> dogs.</p>
 
 <h2>Images of dogs</h2>
 <ul>
     <% @breed.dogs.each do |dog| %>
     <ul>
       <%= link_to dog do %>
-        <%= image_tag dog.image_url, alt: "Image of #{dog.breed.name}"%>
+        <%= dog.name %>
       <% end %>
     </ul>
     <% end %>

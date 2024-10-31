@@ -7,9 +7,9 @@
 <% end %>
 
 <ul>
-    <% @breeds.each do |breed| %>
+  <% @breeds.each do |breed| %>
     <li><%= link_to breed.name, breed %></li>
-    <% end %>
+  <% end %>
 </ul>
 
 <%= paginate @breeds %>

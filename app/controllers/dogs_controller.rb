@@ -5,6 +5,7 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @dogs = Dog.where(name: @dog.name)
   end
     
   def search

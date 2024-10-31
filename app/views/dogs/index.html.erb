@@ -1,14 +1,14 @@
 <h1>All Dogs</h1>
 
 <%= form_with url: search_dogs_path, method: :get do |form| %>
-  <p>Search for dog breeds:</p>
+  <p>Search for dogs by name:</p>
   <%= form.text_field :keywords %> 
   <%= form.submit "Search" %>
 <% end %>
 
 <ul>
     <% @dogs.each do |dog| %>
-    <li><%= link_to dog.breed.name, dog %></li>
+    <li><%= link_to dog.name, dog %></li>
     <% end %>
 </ul>
 
