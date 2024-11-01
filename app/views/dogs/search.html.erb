@@ -1,7 +1,7 @@
-<p class="mb-5">Found <%= pluralize(@dogs.count, 'Breed') %> when searching for: <%= params[:keywords] %></p>
+<p class="mb-5">Found <%= pluralize(@dogs.count, 'Dog') %> name when searching for: <%= params[:keywords] %></p>
 
 <ul>
   <% @dogs.each do |dog| %>
-    <li><%= link_to dog.breed.name, dog %></li>
+    <li>Dog name:<%= link_to dog.name, dog %>, Breed name:<%= dog.breed.name %></li>
   <% end %>
 </ul>

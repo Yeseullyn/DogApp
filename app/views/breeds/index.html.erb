@@ -3,6 +3,10 @@
 <%= form_with url: search_breeds_path, method: :get do |form| %>
   <p>Search for a Breed:</p>
   <%= form.text_field :keywords %> 
+
+  <%= label_tag :dog_id, "Filter by Dog name:" %>
+  <%= form.collection_select :breed_id, Breed.all.order(:name), :id, :name, prompt: "All breeds" %>
+
   <%= form.submit "Search" %>
 <% end %>
 

@@ -9,7 +9,14 @@ class DogsController < ApplicationController
   end
     
   def search
+    @dogs = Dog.order(:name)
+
+    if params[:keywords].present?
     wildcard_search = "%#{params[:keywords]}%"
-    @dogs =  Dog.where("name LIKE ?", wildcard_search)
+    @dogs =  @dogs.where("dogs.name LIKE ?", wildcard_search)
+    end
+    if params[:breed_id].present?
+      @dogs = @dogs.where(breed_id: params[:breed_id])
+    end
   end
 end

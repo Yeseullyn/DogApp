@@ -1,8 +1,12 @@
 <h1>All Dogs</h1>
 
 <%= form_with url: search_dogs_path, method: :get do |form| %>
-  <p>Search for dogs by name:</p>
+  <p>Search for dog name:</p>
   <%= form.text_field :keywords %> 
+
+  <%= label_tag :breed_id, "Filter by breed:" %>
+  <%= form.collection_select :breed_id, Breed.all.order(:name), :id, :name, prompt: "All breeds" %>
+
   <%= form.submit "Search" %>
 <% end %>
 

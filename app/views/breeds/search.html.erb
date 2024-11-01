@@ -2,6 +2,13 @@
 
 <ul>
   <% @breeds.each do |breed| %>
-    <li><%= link_to breed.name, breed %></li>
+    <li>
+      Breed name: <%= link_to breed.name, breed %>, 
+        <ul>
+          <% breed.dogs.each do |dog| %>
+            <li>Dog name: <%= dog.name %></li>
+          <% end %>
+        </ul>
+    </li>
   <% end %>
 </ul>

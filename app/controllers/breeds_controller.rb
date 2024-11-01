@@ -8,7 +8,15 @@ class BreedsController < ApplicationController
   end
   
   def search
+    @breeds = Breed.order(:name)
+
+    if params[:keywords].present?
     wildcard_search = "%#{params[:keywords]}%"
-    @breeds = Breed.where("name LIKE ?", wildcard_search)
+    @breeds = @breeds.where("name LIKE ?", wildcard_search)
+    end
+
+    if params[:dog_id].present?
+      @breeds = @breeds.where(id: params[:dog_id])
+    end
   end
 end
