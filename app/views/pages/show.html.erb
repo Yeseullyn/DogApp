@@ -1,28 +1,34 @@
 <h1>About This Application</h1>
 
 <h2>Data Sources</h2>
-<li>Dog API: This API provides images of dogs.</li>
-<li>Faker: This Faker generates fake dog and breed names.</li>
-<li>CSV File: This CSV file provides owner information, including names and email addresses.</li>
+<ul>
+    <li>Dog API: This API provides images of dogs.</li>
+    <li>Faker: This Faker generates fake dog and breed names.</li>
+    <li>CSV File: This CSV file provides owner information, including names and email addresses.</li>
+</ul>
 
 <h2>Data Structure</h2>
-<li>Dog model: This table includes name, image_url and breed_id columns.</li>
-<li>Breed model: This table include dog breed names.</li>
-<li>Owner model: This table includes name and email.</li>
-<li>DogOwner model: This join table establishes a many-to-many relationship between Dog and Owner, 
-    with each dog having up to two owners and each owner having up to two dogs.</li>
+<ul>
+    <li>Dog model: This table includes name, image_url and breed_id columns.</li>
+    <li>Breed model: This table include dog breed names.</li>
+    <li>Owner model: This table includes name and email.</li>
+    <li>DogOwner model: This join table establishes a many-to-many relationship between Dog and Owner, 
+        with each dog having up to two owners and each owner having up to two dogs.</li>
+</ul>
 
 <h2>Plan to integrate the different Datasets</h2>
-<li>Use Faker gem to creat dog breeds and save them in the Breed model.</li>
-<li>Use Dog API to save image_url and use Faker gem to create dog name in the Dog model.</li>
-<li>Use a CSV file to populate owner information in the Owner model.</li>
-<li>When creating a Dog object, include an image URL from the Dog API and assign a `breed_id` that references a random breed from the Breed table.</li>
-<li>Establish relationships:
-    <ul>
-        <li>Each breed can have multiple dogs associated with it (one-to-many).</li>
-        <li>Each dog can have up to two owners, and each owner can have up to two dogs (many-to-many).</li>
-    </ul>
-</li>
+<ul>
+    <li>Use Faker gem to creat dog breeds and save them in the Breed model.</li>
+    <li>Use Dog API to save image_url and use Faker gem to create dog name in the Dog model.</li>
+    <li>Use a CSV file to populate owner information in the Owner model.</li>
+    <li>When creating a Dog object, include an image URL from the Dog API and assign a `breed_id` that references a random breed from the Breed table.</li>
+    <li>Establish relationships:
+        <ul>
+            <li>Each breed can have multiple dogs associated with it (one-to-many).</li>
+            <li>Each dog can have up to two owners, and each owner can have up to two dogs (many-to-many).</li>
+        </ul>
+    </li>
+</ul>
 
 <h2>ERD</h2>
 <%= image_tag 'dog_app_ERD.png', alt: "Image of ERD" %>

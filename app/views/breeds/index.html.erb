@@ -5,7 +5,7 @@
   <%= form.text_field :keywords %> 
 
   <%= label_tag :dog_id, "Filter by Dog name:" %>
-  <%= form.collection_select :breed_id, Breed.all.order(:name), :id, :name, prompt: "All breeds" %>
+  <%= form.collection_select :dog_id, Breed.all.order(:name), :id, :name, prompt: "All dogs" %>
 
   <%= form.submit "Search" %>
 <% end %>

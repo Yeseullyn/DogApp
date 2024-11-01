@@ -3,7 +3,7 @@
 
 <div>
     <% @breed.dogs.each do |dog| %>
-    <div style="margin = 0px">
+    <div style="margin: 0px">
       <%= link_to "Dog name: #{dog.name}", dog %>
 
       <% dog.owners.each do |owner| %>
