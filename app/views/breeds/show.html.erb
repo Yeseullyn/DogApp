@@ -1,13 +1,16 @@
 <h1><%= @breed.name %></h1>
-<p>This breed has <%= @breed.dogs.count %> dogs.</p>
+<h2>This breed has <%= @breed.dogs.count %> dogs.</h2>
 
-<h2>Images of dogs</h2>
-<ul>
+<div>
     <% @breed.dogs.each do |dog| %>
-    <ul>
-      <%= link_to dog do %>
-        <%= dog.name %>
+    <div style="margin = 0px">
+      <%= link_to "Dog name: #{dog.name}", dog %>
+
+      <% dog.owners.each do |owner| %>
+      <div>Owner: <%= owner.name %>, email: <%= owner.email %></div>
       <% end %>
-    </ul>
+
+      <%= link_to image_tag(dog.image_url, alt: "Image of #{dog.name}", :size => "400x400"), dog %>
+    </div>
     <% end %>
-</ul>
+</div>
